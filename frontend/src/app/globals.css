@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --background: oklch(0.15 0.02 260);
+  /* Dark Slate */
+  --foreground: oklch(0.98 0 0);
+  --card: oklch(0.2 0.03 260);
+  /* Slightly lighter Dark Slate for cards */
+  --card-foreground: oklch(0.98 0 0);
+  --popover: oklch(0.2 0.03 260);
+  --popover-foreground: oklch(0.98 0 0);
+  --primary: oklch(0.45 0.15 260);
+  /* Deep Indigo */
+  --primary-foreground: oklch(0.98 0.02 260);
+  --secondary: oklch(0.25 0.05 260);
+  --secondary-foreground: oklch(0.98 0 0);
+  --muted: oklch(0.25 0.05 260);
+  --muted-foreground: oklch(0.65 0.02 260);
+  --accent: oklch(0.6 0.18 250);
+  /* Electric Blue Accent */
+  --accent-foreground: oklch(0.1 0.02 260);
+  --destructive: oklch(0.4 0.15 20);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.25 0.05 260);
+  --input: oklch(0.25 0.05 260);
+  --ring: oklch(0.6 0.18 250);
+  /* Electric Blue */
+  --radius: 0.75rem;
+
+  /* charts */
+  --chart-1: oklch(0.45 0.15 260);
+  /* Indigo */
+  --chart-2: oklch(0.6 0.18 250);
+  /* Electric Blue */
+  --chart-3: oklch(0.7 0.15 300);
+  /* Purple */
+  --chart-4: oklch(0.8 0.1 200);
+  /* Light Teal */
+  --chart-5: oklch(0.6 0.1 320);
+  /* Pinkish Purple */
+}
+
+/* Force dark mode */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  background-image: radial-gradient(ellipse at top, rgba(49, 46, 129, 0.2), rgb(15, 23, 42), black);
+}
+
+body ::selection {
+  background-color: var(--accent);
+  color: white;
+}
+
+/* Glassmorphism Util Classes */
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-xl;
+  }
+
+  .glass-card {
+    @apply bg-slate-900/60 backdrop-blur-xl border border-indigo-500/20 shadow-2xl;
+  }
+
+  .glass-hover {
+    @apply transition-all duration-300 hover:bg-white/10 hover:border-indigo-400/30 hover:shadow-indigo-500/10;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-cyan-400;
+  }
+}
