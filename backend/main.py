@@ -57,8 +57,10 @@ def get_metrics():
 def get_feature_importance():
     """Returns real feature importances from the trained model."""
     try:
-        model = joblib.load("rf_model.pkl")
-        names = joblib.load("feature_names.pkl")
+        import os
+        BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+        model = joblib.load(os.path.join(BASE_DIR, "rf_model.pkl"))
+        names = joblib.load(os.path.join(BASE_DIR, "feature_names.pkl"))
         importances = model.feature_importances_
         
         feature_labels = {

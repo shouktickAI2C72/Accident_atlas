@@ -5,13 +5,15 @@ import numpy as np
 import os
 import zipfile
 
-model_path = "rf_model.pkl"
-features_path = "feature_names.pkl"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(BASE_DIR, "rf_model.pkl")
+features_path = os.path.join(BASE_DIR, "feature_names.pkl")
+zip_path = os.path.join(BASE_DIR, "rf_model.zip")
 
-if not os.path.exists(model_path) and os.path.exists("rf_model.zip"):
+if (not os.path.exists(model_path) or not os.path.exists(features_path)) and os.path.exists(zip_path):
     print("Extracting rf_model.zip...")
-    with zipfile.ZipFile("rf_model.zip", 'r') as zip_ref:
-        zip_ref.extractall(".")
+    with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+        zip_ref.extractall(BASE_DIR)
     print("Extraction complete.")
 
 try:
