@@ -114,7 +114,8 @@ export default function PredictPage() {
         };
 
         try {
-            const res = await axios.post("http://localhost:8000/predict", payload);
+            const baseUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:8000";
+            const res = await axios.post(`${baseUrl}/predict`, payload);
             setResult(res.data);
         } catch (err: unknown) {
             const msg = err instanceof Error ? err.message : "Prediction failed";
