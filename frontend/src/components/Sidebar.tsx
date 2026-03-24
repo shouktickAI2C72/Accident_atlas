@@ -60,10 +60,10 @@ export function Sidebar() {
                                 href={item.href}
                                 onClick={() => setIsOpen(false)}
                                 className={cn(
-                                    "flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group text-sm font-medium",
+                                    "flex items-center gap-3 px-4 py-3 transition-all duration-300 group text-sm font-semibold tracking-wide",
                                     isActive
-                                        ? "bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 shadow-[0_0_15px_rgba(99,102,241,0.15)]"
-                                        : "text-slate-400 hover:bg-white/5 hover:text-slate-200"
+                                        ? "bg-gradient-to-r from-indigo-500/20 to-transparent text-indigo-400 border-l-[3px] border-indigo-400 shadow-[inset_15px_0_25px_-10px_rgba(99,102,241,0.2)] rounded-r-xl rounded-l-sm"
+                                        : "text-slate-400 hover:bg-white/5 hover:text-slate-200 rounded-xl"
                                 )}
                             >
                                 <item.icon className={cn(
