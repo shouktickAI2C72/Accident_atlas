@@ -9,13 +9,15 @@ import {
     UploadCloud,
     Lightbulb,
     Menu,
-    X
+    X,
+    Gauge
 } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 const navigation = [
     { name: "Dashboard", href: "/", icon: BarChart3 },
+    { name: "Speed Monitor", href: "/speed-monitor", icon: Gauge },
     { name: "Predict Accident", href: "/predict", icon: CarFront },
     { name: "Batch Prediction", href: "/batch", icon: UploadCloud },
     { name: "Explainable AI", href: "/explain", icon: Lightbulb },
